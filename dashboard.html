@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KusiCopyWeb | Architect</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body class="dark-theme">
+
+    <!-- App Container -->
+    <div class="app-container">
+
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="logo-icon"></div>
+                <span class="logo-text">KusiAI</span>
+            </div>
+
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active">
+                    <span class="icon">📂</span> Proyectos
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="icon">🧠</span> Cerebro
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="icon">⚙️</span> Config
+                </a>
+            </nav>
+
+            <div class="user-profile">
+                <div class="avatar">JM</div>
+                <div class="user-info">
+                    <span class="name">Julio M.</span>
+                    <span class="role">Architect</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Workspace -->
+        <main class="workspace">
+
+            <!-- Top Bar -->
+            <header class="top-bar">
+                <div class="project-title">
+                    <span class="label">Proyecto:</span>
+                    <h1 id="current-project-name">Nuevo Proyecto: SaaS B2B</h1>
+                </div>
+                <div class="actions">
+                    <button class="btn btn-secondary">Guardar Borrador</button>
+                    <button class="btn btn-primary" id="generate-btn">Generar Blueprint ✨</button>
+                </div>
+            </header>
+
+            <!-- Stepper / Progress -->
+            <div class="stepper-container">
+                <div class="step active" data-step="1">
+                    <div class="step-number">1</div>
+                    <div class="step-label">Briefing Maestro</div>
+                </div>
+                <div class="step-line"></div>
+                <div class="step" data-step="2">
+                    <div class="step-number">2</div>
+                    <div class="step-label">Ajuste de Tonos</div>
+                </div>
+                <div class="step-line"></div>
+                <div class="step" data-step="3">
+                    <div class="step-number">3</div>
+                    <div class="step-label">El Blueprint</div>
+                </div>
+            </div>
+
+            <!-- Views Container -->
+            <div class="views-container">
+
+                <!-- VIEW 1: BRIEFING MAESTRO (15 Preguntas) -->
+                <section id="view-briefing" class="view active">
+                    <div class="form-container">
+                        <h2>Diagnóstico Estratégico</h2>
+                        <p class="subtitle">Responde estas 15 preguntas para calibrar la maquinaria.</p>
+
+                        <form id="briefing-form">
+                            <!-- Grupo 1: El Núcleo -->
+                            <div class="question-group">
+                                <h3>I. El Núcleo del Negocio</h3>
+                                <div class="input-group">
+                                    <label>1. El Objetivo (¿Qué quieres que pase?)</label>
+                                    <input type="text"
+                                        placeholder="Ej: Vender suscripciones anuales a dueños de gimnasios." name="q1">
+                                </div>
+                                <div class="input-group">
+                                    <label>2. El Problema Real (El Dolor)</label>
+                                    <textarea
+                                        placeholder="Ej: Pierden dinero cada mes porque no saben retener a los socios."
+                                        name="q2"></textarea>
+                                </div>
+                                <div class="input-group">
+                                    <label>3. El Enemigo (Obstáculo)</label>
+                                    <input type="text"
+                                        placeholder="Ej: La complejidad del software actual y la falta de tiempo."
+                                        name="q3">
+                                </div>
+                            </div>
+                            <!-- (Se añadirán las otras 12 preguntas aquí progresivamente) -->
+                            <div class="question-group">
+                                <div class="placeholder-message">
+                                    <span>+ 12 Preguntas Estratégicas Ocultas (Black Box Mode)</span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- VIEW 2: AJUSTE DE TONOS (Config) -->
+                <section id="view-tuning" class="view">
+                    <div class="tuning-grid">
+
+                        <!-- Columna Config API -->
+                        <div class="config-card">
+                            <h3>🔌 Conexión Neural (APIs)</h3>
+                            <div class="api-slot">
+                                <label>Gemini 1.5 Pro (Cerebro A)</label>
+                                <input type="password" id="api-gemini" placeholder="sk-...">
+                                <span class="status-dot ready"></span>
+                            </div>
+                            <div class="api-slot">
+                                <label>OpenAI GPT-4 (Cerebro B)</label>
+                                <input type="password" id="api-openai" placeholder="sk-...">
+                                <span class="status-dot"></span>
+                            </div>
+                            <div class="api-slot">
+                                <label>Claude 3.5 Sonnet (Cerebro C)</label>
+                                <input type="password" id="api-claude" placeholder="sk-...">
+                                <span class="status-dot"></span>
+                            </div>
+                        </div>
+
+                        <!-- Columna Tonos -->
+                        <div class="config-card">
+                            <h3>🎚️ Tonos Estratégicos</h3>
+                            <div class="tone-selector">
+                                <div class="tone-option selected" data-tone="impacto">
+                                    <div class="tone-icon">🔥</div>
+                                    <div class="tone-info">
+                                        <h4>Impacto Directo</h4>
+                                        <p>Agresivo, Escasez, Oferta Irresistible. (Hormozi/Hopkins)</p>
+                                    </div>
+                                </div>
+                                <div class="tone-option" data-tone="legado">
+                                    <div class="tone-icon">🏛️</div>
+                                    <div class="tone-info">
+                                        <h4>Legado y Autoridad</h4>
+                                        <p>Confianza, Estatus, Prueba Social. (Cialdini)</p>
+                                    </div>
+                                </div>
+                                <div class="tone-option" data-tone="conexion">
+                                    <div class="tone-icon">❤️</div>
+                                    <div class="tone-info">
+                                        <h4>Conexión Vital</h4>
+                                        <p>Empatía, Historia, Transformación. (Truby/Klaric)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- VIEW 3: EL BLUEPRINT (Output) -->
+                <section id="view-blueprint" class="view">
+                    <div class="blueprint-layout">
+                        <!-- Columna Estructura -->
+                        <div class="blueprint-col structure">
+                            <h3>📐 Estructura (Wireframe)</h3>
+                            <div class="wireframe-block">Hero Section</div>
+                            <div class="wireframe-block">Pain Points</div>
+                            <div class="wireframe-block">Value Stack</div>
+                        </div>
+
+                        <!-- Columna Copy -->
+                        <div class="blueprint-col copy">
+                            <h3>✍️ Copy Maestro</h3>
+                            <div class="copy-content">
+                                <h4 class="tag">H1 Headline</h4>
+                                <p class="generated-text">"Deja de perder socios. Empieza a construir un Imperio."</p>
+                                <h4 class="tag">Subheadline</h4>
+                                <p class="generated-text">El único sistema que garantiza retención o te devolvemos el
+                                    dinero.</p>
+                            </div>
+                        </div>
+
+                        <!-- Columna ADN Visual -->
+                        <div class="blueprint-col visual">
+                            <h3>🎨 ADN Visual</h3>
+                            <div class="color-palette">
+                                <div class="color-swatch" style="background: #1a1a1a;">Start</div>
+                                <div class="color-swatch" style="background: #ff4d4d;">Alert</div>
+                                <div class="color-swatch" style="background: #ffffff;">Clean</div>
+                            </div>
+                            <div class="font-spec">
+                                <p><strong>Títulos:</strong> Inter (Bold)</p>
+                                <p><strong>Cuerpo:</strong> Roboto (Regular)</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
